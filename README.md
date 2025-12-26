@@ -42,14 +42,14 @@
 Пароль: admin
 s
 movie-catalog/
-├── app/ # Основное приложение Flask
-│ ├── __init__.py # Создание приложения и инициализация
-│ ├── models.py # Модели User, Movie, Series
-│ ├── auth/ # Авторизация (Blueprint)
-│ ├── main/ # Веб-интерфейс (Blueprint)
-│ ├── api/ # REST API (Blueprint)
-│ └── templates/ # HTML-шаблоны (Jinja2)
-├── tests/ # Тесты API
-├── run.py # Точка входа
-├── requirements.txt # Зависимости
-└── README.md # Этот файл
+|── app/ # Основное приложение Flask
+| |── __init__.py # Создание приложения и инициализация
+| |── models.py # Модели User, Movie, Series
+| |── auth/ # Авторизация (Blueprint)
+| |── main/ # Веб-интерфейс (Blueprint)
+| |── api/ # REST API (Blueprint)
+| |── templates/ # HTML-шаблоны (Jinja2)
+|── tests/ # Тесты API
+|── run.py # Точка входа
+|── requirements.txt # Зависимости
+|── README.md # Этот файл
