@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>🎬 Фильмы</h2>
+<p><a href="{{ url_for('main.movies') }}" class="btn btn-outline-primary">Просмотреть фильмы</a></p>
+
+<h2>📺 Сериалы</h2>
+<p><a href="{{ url_for('main.series') }}" class="btn btn-outline-primary">Просмотреть сериалы</a></p>
+
+{% if current_user.is_authenticated %}
+<hr>
+<h3>Администрирование</h3>
+<a href="{{ url_for('main.movie_create') }}" class="btn btn-success">➕ Добавить фильм</a>
+<a href="{{ url_for('main.series_create') }}" class="btn btn-success">➕ Добавить сериал</a>
+{% endif %}
+{% endblock %}

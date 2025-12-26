@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% set is_series = is_series|default(false) %}
+{% set title = "Редактировать сериал" if is_series else "Редактировать фильм" %}
+{% set back_url = url_for('main.series') if is_series else url_for('main.movies') %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<h2>{{ title }}</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.year.label(class="form-label") }}
+        {{ form.year(class="form-control") }}
+    </div>
+    {% if is_series %}
+    <div class="mb-3">
+        {{ form.seasons.label(class="form-label") }}
+        {{ form.seasons(class="form-control") }}
+    </div>
+    {% endif %}
+    <div class="mb-3">
+        {{ form.genre.label(class="form-label") }}
+        {{ form.genre(class="form-control") }}
+    </div>
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control", rows="4") }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+    <a href="{{ back_url }}" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}

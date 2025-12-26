@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Регистрация</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+        {% if form.username.errors %}
+        <div class="text-danger">{{ form.username.errors[0] }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+        {% if form.email.errors %}
+        <div class="text-danger">{{ form.email.errors[0] }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+        {% if form.password.errors %}
+        <div class="text-danger">{{ form.password.errors[0] }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        {{ form.password2.label(class="form-label") }}
+        {{ form.password2(class="form-control") }}
+        {% if form.password2.errors %}
+        <div class="text-danger">{{ form.password2.errors[0] }}</div>
+        {% endif %}
+    </div>
+    {{ form.submit(class="btn btn-success") }}
+    <a href="{{ url_for('auth.login') }}" class="btn btn-link">Уже есть аккаунт?</a>
+</form>
+{% endblock %}
